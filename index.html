@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roger Bacon: El Doctor Mirabilis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #1a1a1a;
+            --color-surface: #2c2c2c;
+            --color-primary: #d4af37; /* Oro antiguo */
+            --color-text: #e0e0e0;
+            --color-text-muted: #a0a0a0;
+            --font-titles: 'Lora', serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.8;
+        }
+        .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+        h1, h2, h3 { font-family: var(--font-titles); color: var(--color-primary); }
+        a { color: var(--color-primary); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: #fff; }
+
+        /* --- Header --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.95)), url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero h1 { font-size: 4rem; text-shadow: 2px 2px 10px #000; }
+        .hero p { font-size: 1.3rem; font-weight: 300; max-width: 700px; margin-top: 1rem; color: var(--color-text-muted); }
+
+        /* --- Navigation --- */
+        nav {
+            position: sticky; top: 0; background-color: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0;
+            border-bottom: 1px solid var(--color-surface);
+        }
+        nav .container {
+            display: flex; justify-content: center; flex-wrap: wrap; gap: 1.5rem;
+        }
+        nav a { font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- Sections --- */
+        .section { padding: 5rem 0; border-bottom: 1px solid var(--color-surface); opacity: 0; transform: translateY(40px); transition: opacity 0.8s, transform 0.8s; }
+        .section.visible { opacity: 1; transform: translateY(0); }
+        .section h2 { font-size: 2.8rem; text-align: center; margin-bottom: 3rem; }
+        .section h3 { font-size: 1.8rem; margin-bottom: 1rem; margin-top: 2rem; border-left: 3px solid var(--color-primary); padding-left: 1rem; }
+        .section p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+
+        /* --- Blockquote --- */
+        blockquote {
+            font-family: var(--font-titles);
+            font-style: italic;
+            font-size: 1.4rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--color-surface);
+            border-left: 5px solid var(--color-primary);
+            background-color: var(--color-surface);
+            border-radius: 8px;
+            position: relative;
+        }
+        blockquote::before { content: '“'; font-size: 5rem; color: var(--color-primary); opacity: 0.2; position: absolute; top: -10px; left: 10px; }
+        cite { display: block; text-align: right; margin-top: 1rem; font-weight: 700; font-size: 1rem; color: var(--color-text-muted); }
+
+        /* --- Link List --- */
+        .link-list li { list-style: none; background-color: var(--color-surface); margin-bottom: 1rem; padding: 1.5rem; border-radius: 8px; transition: transform 0.3s; }
+        .link-list li:hover { transform: translateX(10px); }
+        .link-list a { font-weight: 700; font-size: 1.2rem; }
+        .link-list span { display: block; font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.5rem; }
+
+        /* --- Footer --- */
+        footer { text-align: center; padding: 3rem; font-size: 0.9rem; color: var(--color-text-muted); }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>Roger Bacon</h1>
+        <p>El "Doctor Mirabilis", pionero del método científico y visionario de la ciencia experimental en el corazón del siglo XIII.</p>
+    </header>
+
+    <nav>
+        <div class="container">
+            <a href="#vida">Vida y Contexto</a>
+            <a href="#pensamiento">Pensamiento</a>
+            <a href="#obras">Obras</a>
+            <a href="#legado">Legado</a>
+            <a href="#fuentes">Fuentes</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="vida" class="section">
+            <h2>Vida y Contexto Histórico</h2>
+            <p>Roger Bacon (c. 1220 – c. 1292) fue un fraile franciscano, filósofo y científico inglés que vivió en una de las épocas más vibrantes intelectualmente de la Edad Media. El siglo XIII fue testigo del auge de las universidades, la consolidación de la escolástica y la redescrubrimiento de las obras de Aristóteles a través de traducciones árabes, lo que generó un fervor intelectual sin precedentes.</p>
+            <p>Nacido en Ilchester, Somerset, Bacon estudió en Oxford antes de convertirse en maestro en la Universidad de París, el epicentro del saber de la época. Sin embargo, su espíritu crítico y su insaciable curiosidad lo llevaron a cuestionar la dependencia ciega de la autoridad y la argumentación puramente lógica, defendiendo una nueva forma de conocimiento basada en la experiencia.</p>
+            <h3>El Giro hacia la Ciencia</h3>
+            <p>Alrededor de 1257, se unió a la Orden Franciscana, donde, a pesar de las restricciones, continuó sus estudios en secreto. Su momento cumbre llegó con el papado de Clemente IV, quien, interesado por sus ideas, le pidió que escribiera un tratado sobre las ciencias. El resultado fue su monumental "Opus Majus", una propuesta enciclopédica para reformar la educación cristiana, poniendo la ciencia experimental y el estudio de las lenguas en el centro del saber.</p>
+        </section>
+
+        <section id="pensamiento" class="section">
+            <h2>El Pensamiento del Doctor Mirabilis</h2>
+            <h3>La Experiencia como Fuente del Saber</h3>
+            <p>La idea más revolucionaria de Bacon fue su insistencia en la primacía de la experiencia (scientia experimentalis) como fuente de todo conocimiento cierto. Criticó a sus contemporáneos por basarse exclusivamente en la autoridad de los antiguos y en la deducción lógica, argumentando que sin la verificación empírica, el conocimiento es incompleto y propenso al error.</p>
+            <blockquote>
+                "La argumentación no prueba nada, pero la experiencia sí. Pues aunque un argumento sea lógicamente perfecto, no produce certeza si no va acompañado de la experiencia y la aplicación práctica."
+                <cite>Atribuido a Roger Bacon</cite>
+            </blockquote>
+            <h3>Los Cuatro Obstáculos del Conocimiento</h3>
+            <p>En su "Opus Majus", Bacon identificó cuatro grandes "ofendículos" o causas de error que impiden a los hombres alcanzar la verdad:</p>
+            <ol>
+                <li>La confianza ciega en una autoridad frágil e indigna.</li>
+                <li>La fuerza de la costumbre y la tradición.</li>
+                <li>La opinión del vulgo ignorante.</li>
+                <li>El ocultamiento de la propia ignorancia con una ostentación de sabiduría aparente.</li>
+            </ol>
+            <h3>La Unidad de las Ciencias</h3>
+            <p>Bacon no veía una separación entre ciencia y teología. Para él, todas las ciencias estaban interconectadas y su propósito último era servir como una herramienta para una mejor comprensión de la teología y las Sagradas Escrituras. La matemática era la "puerta y llave" de todas las ciencias, y la óptica (Perspectiva), el primer ejemplo de una ciencia física matematizada.</p>
+        </section>
+
+        <section id="obras" class="section">
+            <h2>Obras Principales</h2>
+            <p>A petición del Papa Clemente IV, Bacon compuso sus obras más importantes en un tiempo récord. Aunque es difícil encontrar versiones gratuitas en español, aquí tienes enlaces a las ediciones más relevantes.</p>
+            <ul class="link-list">
+                <li>
+                    <a href="https://www.amazon.es/Opus-majus-Roger-Bacon/dp/8400091257/" target="_blank">Opus Majus (La Obra Mayor)</a>
+                    <span>Su obra maestra enciclopédica. No hay versiones gratuitas conocidas en español, pero esta edición de CSIC es una referencia académica.</span>
+                </li>
+                <li>
+                    <a href="https://archive.org/details/opus-majus-ii-roger-bacon/mode/2up" target="_blank">Opus Majus (en Inglés, en Archive.org)</a>
+                    <span>Una traducción al inglés disponible gratuitamente para su consulta.</span>
+                </li>
+                <li>
+                    <a href="https://www.amazon.es/escritos-alquimia-Roger-Bacon/dp/8478082944/" target="_blank">Los Escritos de Alquimia</a>
+                    <span>Una colección de sus trabajos sobre alquimia, un tema que fascinó a Bacon como parte de su ciencia experimental.</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="legado" class="section">
+            <h2>Influencias y Legado</h2>
+            <h3>Influencias Recibidas</h3>
+            <p><strong>Aristóteles:</strong> Como todos los escolásticos, su base fue aristotélica, pero fue uno de los primeros en abogar por leerlo en el griego original y no a través de traducciones defectuosas.</p>
+            <p><strong>Pensadores Árabes:</strong> Su trabajo en óptica es impensable sin la influencia de Alhacén (Ibn al-Haytham), cuyo método experimental adoptó y promovió. También estudió a Avicena y a Averroes.</p>
+            <p><strong>Robert Grosseteste:</strong> Fue una figura clave que le inspiró en la importancia de la matemática y la experimentación en las ciencias naturales.</p>
+            <h3>Influencias Ejercidas</h3>
+            <p>El impacto directo de Bacon fue limitado en su época; sus obras fueron poco leídas y su encarcelamiento silenció su voz. Sin embargo, su legado es inmenso. Se le considera un precursor directo del método científico y una inspiración para pensadores del Renacimiento y la Revolución Científica, como Leonardo da Vinci y, especialmente, Francis Bacon, quien, siglos después, sistematizaría muchas de las ideas sobre el empirismo que Roger Bacon había defendido.</p>
+        </section>
+
+        <section id="fuentes" class="section">
+            <h2>Fuentes y Enlaces Externos</h2>
+            <p>Para profundizar en la figura de Roger Bacon, estos recursos son un excelente punto de partida:</p>
+            <ul class="link-list">
+                <li>
+                    <a href="https://es.wikipedia.org/wiki/Roger_Bacon" target="_blank">Roger Bacon en Wikipedia</a>
+                    <span>Un resumen completo y bien estructurado de su vida, obra y leyendas asociadas.</span>
+                </li>
+                <li>
+                    <a href="https://plato.stanford.edu/entries/roger-bacon/" target="_blank">Roger Bacon en la Stanford Encyclopedia of Philosophy (en inglés)</a>
+                    <span>El análisis más riguroso y detallado de su filosofía, contexto y contribuciones.</span>
+                </li>
+                <li>
+                    <a href="https://www.academia.edu/4295602/La_Ciencia_Experimental_de_Roger_Bacon" target="_blank">Artículo en Academia.edu: "La Ciencia Experimental de Roger Bacon"</a>
+                    <span>Un ensayo en español que profundiza en su aportación más conocida.</span>
+                </li>
+                 <li>
+                    <a href="https://www.investigacionyciencia.es/revistas/investigacion-y-ciencia/el-origen-de-la-conciencia-556/roger-bacon-el-primer-cientfico-9391" target="_blank">Artículo en "Investigación y Ciencia"</a>
+                    <span>Un artículo divulgativo que lo presenta como el "primer científico".</span>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>Página creada como un homenaje a la curiosidad y el espíritu indomable de Roger Bacon.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
